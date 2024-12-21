@@ -1,5 +1,7 @@
 import { Container, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
+import { RouterProvider } from 'react-router';
+import router from './components/Routes';
 
 const dartTheme = createTheme({
   palette: {
@@ -12,8 +14,8 @@ const App = () => {
     <ThemeProvider theme={dartTheme}>
       <CssBaseline />
       <Container>
-        <h1>Hello, World!</h1>
-      </Container>
+        <RouterProvider router={router} />
+      </Container>  
     </ThemeProvider>
   );
 };
