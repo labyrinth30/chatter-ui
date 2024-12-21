@@ -1,11 +1,21 @@
+import { Container, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+const dartTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  }
+})
+
+const App = () => {
   return (
-    <div></div>
+    <ThemeProvider theme={dartTheme}>
+      <CssBaseline />
+      <Container>
+        <h1>Hello, World!</h1>
+      </Container>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
