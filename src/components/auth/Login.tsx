@@ -5,8 +5,8 @@ import Auth from "./Auth";
 const Login = () => {
     return (
         <Auth submitLabel="로그인하기" onSubmit={async () => {}} >
-            <Link to="/signup">
-            <MUILink>회원가입 하기</MUILink>
+            <Link to="/signup" style={{ alignSelf: "center" }}>
+            <MUILink>회원가입 하러가기</MUILink>
             </Link>
         </Auth>
     )
