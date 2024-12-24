@@ -3,14 +3,16 @@ import {Link as MUILink} from "@mui/material";
 import Auth from "./Auth";
 import {useCreateUser} from "../../hooks/useCreateUser";
 import {useState} from "react";
+import {extractErrorMessage} from "../../utils/errors";
 
 const Signup = () => {
     // useCreateUser를 호출하여 반환된 값을 createUser에 할당한다.
     const [createUser] = useCreateUser();
-    const [error, setError] = useState<string>("");
+    const [error, setError] = useState("");
 
     return (
         <Auth submitLabel="회원가입"
+              error={error}
               onSubmit={async ({email, password}) => {
             try {
                 await createUser({
@@ -21,9 +23,14 @@ const Signup = () => {
                         },
                     },
                 });
+                setError("");
             } catch (err) {
-                console.error(err);
-                throw err;
+                const errorMessage = extractErrorMessage(err);
+                if (errorMessage) {
+                    setError(errorMessage);
+                    return;
+                }
+                setError("알 수 없는 오류가 발생했습니다.");
             }
         }}>
             <Link to="/login" style={{alignSelf: "center"}}>
