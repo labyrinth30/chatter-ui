@@ -17,7 +17,8 @@ interface CreateUserInput {
  * createUser는 _id와 email을 반환한다.
  */
 
-
+// createUser는 서버에서 정의한 mutation의 이름이다.
+// CreateUser는 클라이언트에서 사용할 mutation의 이름이다.
 const CREATE_USER = gql`
     mutation CreateUser($createUserInput: CreateUserInput!) {
     createUser(createUserInput: $createUserInput) {
