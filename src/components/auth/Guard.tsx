@@ -1,11 +1,15 @@
 import {useGetMe} from "../../hooks/useGetMe";
 import excludedRoutes from "../../constants/excluded-routes";
+import React from "react";
 
 /**
  * Guard 컴포넌트는 라우팅 전 유저가 로그인 상태인지 확인하는 컴포넌트다.
  * 로그인 상태가 아니라면 로그인 페이지로 리다이렉트한다.
  */
 interface GuardProps {
+    // Guard 컴포넌트의 자식 컴포넌트
+    // JSX.Element 타입의 자식 컴포넌트를 받는다.
+    // JSX.Element는 Depreacted 되었으므로 React.ReactNode으로 대체하였음.
     children: JSX.Element;
 }
 
